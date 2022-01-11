@@ -1,4 +1,5 @@
-import Image from 'next/image';
+import { ArrowCircleLeftIcon } from '@heroicons/react/outline';
+import Link from 'next/link';
 import React from 'react';
 import Layout from '../../components/Layout';
 
@@ -24,9 +25,17 @@ const ProductDetail = ({
 
   return (
     <Layout>
-      <h1 className="text-3xl font-bold sm:px-8 lg:px-0">
-        Detail Product - {title}
-      </h1>
+      <div className="flex items-center justify-between">
+        <h1 className="text-3xl font-bold sm:px-8 lg:px-0">
+          Detail Product - {title}
+        </h1>
+        <Link href="/">
+          <a className="inline-flex items-center justify-center px-3 py-2 space-x-2 font-semibold bg-gray-200 rounded-md">
+            <ArrowCircleLeftIcon className="w-5 h-5" />
+            <span>Back to Home</span>
+          </a>
+        </Link>
+      </div>
       <div className="grid grid-cols-12 gap-8 pt-8">
         <div className="col-span-4">
           <div className="rounded-2xl">
@@ -43,7 +52,6 @@ const ProductDetail = ({
           <h1 className="text-3xl font-semibold uppercase">{title}</h1>
           <p className="py-2 text-sm">{description}</p>
           <div className="text-2xl font-semibold">
-            {' '}
             Price {formatDollar(price)}
           </div>
         </div>
