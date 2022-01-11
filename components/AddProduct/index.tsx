@@ -11,7 +11,12 @@ type Input = {
 };
 
 const AddProduct = ({ isOpen, setIsOpen, cancelButtonRef, setFetching }: any) => {
-  const [inputs, setInputs] = useState({});
+  const [inputs, setInputs] = useState({
+    title: '',
+    price: 0,
+    img: '',
+    description: '',
+  });
 
   const handleChange = (event: { target: { name: any; value: any } }) => {
     const name = event.target.name;

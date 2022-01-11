@@ -1,12 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
 import type { InferGetStaticPropsType, NextPage } from 'next';
-import Head from 'next/head';
-import Image from 'next/image';
 import Link from 'next/link';
-import { Key, ReactChild, ReactFragment, ReactPortal, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import AddProduct from '../components/AddProduct';
 import Layout from '../components/Layout';
-import styles from '../styles/Home.module.css';
 
 type Product = {
   id: number;
@@ -34,7 +31,7 @@ const Home = ({ data }: InferGetStaticPropsType<typeof getStaticProps>) => {
     }
   }, [fetching]);
 
-  const formatRupiah = (money: number) => {
+  const formatDollar = (money: number) => {
     return new Intl.NumberFormat('us-US', {
       style: 'currency',
       currency: 'USD',
@@ -82,7 +79,7 @@ const Home = ({ data }: InferGetStaticPropsType<typeof getStaticProps>) => {
                 </h3>
                 {/* <p className='mt-1 text-sm text-gray-500'>{product.color}</p> */}
               </div>
-              <p className='text-sm font-semibold text-gray-900'>{formatRupiah(product.price)}</p>
+              <p className='text-sm font-semibold text-gray-900'>{formatDollar(product.price)}</p>
             </div>
           </div>
         ))}
